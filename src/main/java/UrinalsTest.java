@@ -39,7 +39,12 @@ public class UrinalsTest {
                 Urinals.getUrinalCount("10001"));
     }
 
-   
+    @Test
+    public void readFile() throws IOException {
+        System.out.println("====== Unique Chhetri ==== TEST FOUR EXECUTED=======");
+        File expected = new File("urinals.dat");
+        assertEquals(true,expected.isFile());
+    }
 
 
 
