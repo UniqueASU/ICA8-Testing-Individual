@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,6 +22,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.AnyOf.anyOf;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class UrinalsTest {
     @Test
@@ -62,6 +64,17 @@ public class UrinalsTest {
         System.out.println("====== Unique Chhetri ==== TEST SIX EXECUTED=======");
         File expected = new File("urinals.dat");
         assertTrue(expected.length()>0);
+    }
+    @Test
+    public void readFileException() {
+        System.out.println("====== Unique Chhetri ==== TEST SEVEN EXECUTED=======");
+        assertThrows(IOException.class, new Executable() {
+            File expected = new File("wrongFileName.dat");
+            @Override
+            public void execute() throws Throwable {
+               Urinals.readFromFile(expected);
+            }
+        });
     }
 
 
