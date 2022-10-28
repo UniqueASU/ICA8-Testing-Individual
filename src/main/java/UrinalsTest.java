@@ -79,12 +79,23 @@ public class UrinalsTest {
     }
 
     @Test
-    void writeBadFilenameException() throws IOException {
+    void writeToFileBadFilenameException() throws IOException {
         String currentPath = new java.io.File(".").getCanonicalPath();
-        Assertions.assertThrows(Exception.class
-                , () -> Urinals.writeToFile(new ArrayList<>() , currentPath, "rule.txt"));
-//        assertEquals("Bad Filename", exception.getMessage());
+        Exception exception = Assertions.assertThrows(Exception.class
+                , () -> Urinals.writeToFile(new ArrayList<>() , currentPath, "wrongname.file"));
+        assertEquals("Bad Filename", exception.getMessage());
         System.out.println("====== Unique Chhetri == TEST EIGHT EXECUTED =======");
+    }
+
+
+    @Test
+    void writeFileIOException(){
+        ArrayList<String> listInput = new ArrayList();
+        listInput.add("1");
+        listInput.add("2");
+        Assertions.assertThrows(Exception.class
+                , () -> Urinals.writeToFile(listInput, "wrong/path", "rule.txt"));
+        System.out.println("====== Unique Chhetri == TEST NINE EXECUTED =======");
     }
 
 
