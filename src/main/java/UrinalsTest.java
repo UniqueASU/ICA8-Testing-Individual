@@ -21,8 +21,9 @@ public class UrinalsTest {
     void isValidString2(){
         System.out.println("====== Unique Chhetri ==== TEST TWO EXECUTED=======");
         Assertions.assertEquals(true,
-                Urinals.validString("10210"));
+                Urinals.validString("100010"));
     }
+  
 
 
 }
