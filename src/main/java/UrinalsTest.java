@@ -10,13 +10,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.AnyOf.anyOf;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class UrinalsTest {
     @Test
@@ -44,6 +48,13 @@ public class UrinalsTest {
         System.out.println("====== Unique Chhetri ==== TEST FOUR EXECUTED=======");
         File expected = new File("urinals.dat");
         assertEquals(true,expected.isFile());
+    }
+
+    @Test
+    public void readEmptyFile() throws IOException {
+        System.out.println("====== Unique Chhetri ==== TEST FIVE EXECUTED=======");
+        File expected = new File("urinals.dat");
+        assertTrue(expected.length()>0);
     }
 
 
