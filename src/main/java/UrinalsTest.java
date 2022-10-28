@@ -13,7 +13,16 @@ public class UrinalsTest {
     @Test
     void isValidString()
     {
-        System.out.println("======TEST ONE EXECUTED=======");
-        Assertions.assertFalse( false,"====== Unique Chhetri == TEST TWO EXECUTED =======");
+        System.out.println("====== Unique Chhetri ==== TEST ONE EXECUTED=======");
+        Assertions.assertEquals( false,
+                Urinals.validString("====== Unique Chhetri ==== TEST ONE EXECUTED======="));
     }
+    @Test
+    void isValidString2(){
+        System.out.println("====== Unique Chhetri ==== TEST TWO EXECUTED=======");
+        Assertions.assertEquals(true,
+                Urinals.validString("10210"));
+    }
+
+
 }

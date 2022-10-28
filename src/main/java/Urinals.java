@@ -70,7 +70,8 @@ public class Urinals {
     }
 
     public static boolean validString(String userInput){
-            if(userInput.contains("1") || userInput.contains("0")){
+            boolean isABinNumber = userInput.matches("^[01]+$");
+            if(isABinNumber){
                 return true;
             }
             else {
