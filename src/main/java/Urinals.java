@@ -18,10 +18,9 @@ public class Urinals {
                 .replace("-", "")
                 .length();
     }
-    public static void writeToFile(List<String> outputs) throws IOException {
+    public static void writeToFile(List<String> outputs, String currentPath,String save) throws IOException {
         int num = 0;
-        String currentPath = new java.io.File(".").getCanonicalPath();
-        String save = "rule.txt";
+//        String currentPath = new java.io.File(".").getCanonicalPath();
         File file = new File(currentPath, save);
         while(file.exists()) {
             save = "rule" + (++num) +".txt";
@@ -99,8 +98,9 @@ public class Urinals {
         if(selectedOption.contains("2")){
             File file = new File(
                     "urinals.dat");
+            String currentPath = new java.io.File(".").getCanonicalPath();
             List<String> fileValue = readFromFile(file);
-            writeToFile(fileValue);
+            writeToFile(fileValue,currentPath,"rule.txt");
         }
     }
 }

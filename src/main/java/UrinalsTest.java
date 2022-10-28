@@ -17,6 +17,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.AnyOf.anyOf;
@@ -76,6 +77,17 @@ public class UrinalsTest {
             }
         });
     }
+
+    @Test
+    void writeBadFilenameException() throws IOException {
+        String currentPath = new java.io.File(".").getCanonicalPath();
+        Assertions.assertThrows(Exception.class
+                , () -> Urinals.writeToFile(new ArrayList<>() , currentPath, "rule.txt"));
+//        assertEquals("Bad Filename", exception.getMessage());
+        System.out.println("====== Unique Chhetri == TEST EIGHT EXECUTED =======");
+    }
+
+
 
 
 
