@@ -51,11 +51,19 @@ public class UrinalsTest {
     }
 
     @Test
-    public void readEmptyFile() throws IOException {
+    public void readInputFile() throws IOException {
         System.out.println("====== Unique Chhetri ==== TEST FIVE EXECUTED=======");
+        File expected = new File("urinals.dat");
+        assertEquals(true,expected.isFile());
+    }
+
+    @Test
+    public void readEmptyFile() throws IOException {
+        System.out.println("====== Unique Chhetri ==== TEST SIX EXECUTED=======");
         File expected = new File("urinals.dat");
         assertTrue(expected.length()>0);
     }
+
 
 
 
