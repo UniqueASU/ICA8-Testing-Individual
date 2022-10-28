@@ -45,9 +45,7 @@ public class Urinals {
         }
 
 }
-    public static ArrayList readFromFile() throws IOException {
-        File file = new File(
-                "urinals.dat");
+    public static ArrayList readFromFile(File file) throws IOException {
         BufferedReader br
                 = new BufferedReader(new FileReader(file));
         String st;
@@ -99,7 +97,9 @@ public class Urinals {
         }
 
         if(selectedOption.contains("2")){
-            List<String> fileValue = readFromFile();
+            File file = new File(
+                    "urinals.dat");
+            List<String> fileValue = readFromFile(file);
             writeToFile(fileValue);
         }
     }
